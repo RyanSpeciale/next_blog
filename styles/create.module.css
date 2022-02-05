@@ -1,0 +1,28 @@
+.maincontainer {
+    margin-top: 1.5cm;
+    margin-left: 12cm;
+    margin-bottom: 2cm;
+}
+
+.title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.textfield2 {
+    width: 15cm;
+    margin-top: 1cm;
+    color: black;
+}
+
+.button {
+    background-color: black;
+    margin-top: .5cm;
+    color: white;
+    
+}
+
+.button:hover {
+    background-color: gray;
+    color: black;
+}
