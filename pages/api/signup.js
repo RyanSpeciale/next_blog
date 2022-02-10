@@ -1,18 +1,19 @@
-
-import models from '../../models/models'
-import dbConnect from '../../lib/dbconnect'
+import dbConnect from '../../lib/dbConnect'
+import User from '../../models/User'
 
 export default async function handler(req, res) {
-    if (req.method != 'POST') {
-        return res.status(404).json({ error: 'Bad request'})
-    } else {
-        const user = new models.User(req.body)
-        try {
-            await dbConnect()
-            await user.save()
-            return res.status(201).json({ message: 'User has been created' })
-        } catch (err) {
-            return res.status(400).json({ error: err })
-        }
+  const { method } = req
+
+  await dbConnect()
+
+  if (method === 'POST') {
+    try {
+      const user = await User.create(req.body);
+      res.status(201).json({ success: user })
+    } catch (err) {
+      res.status(401).json({ failure: 'Unable to create' })
     }
+  } else {
+    res.status(403).json({ error: 'Bad request method' })
+  }
 }
