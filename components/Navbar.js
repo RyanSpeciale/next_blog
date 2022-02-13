@@ -1,11 +1,14 @@
 import Link from "next/link";
-import { Toolbar } from "@mui/material";
+import { Avatar, Toolbar } from "@mui/material";
 import { Button } from "@mui/material";
 import styles from '../styles/navbar.module.css'
 import { Typography } from "@mui/material";
 import FeedIcon from '@mui/icons-material/Feed';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const Navbar = () => {
+    const { data: session } = useSession()
+    
     return (
         <div>
             <Toolbar className={styles.toolbar}>
@@ -20,15 +23,17 @@ const Navbar = () => {
               <Link href='/posts' passHref>
                   <Button variant='text' className={styles.button}>all posts</Button>
               </Link>
-              <Link href='/signin' passHref>
-                  <Button variant='text' className={styles.button}>sign in</Button>
-              </Link>
-              <Link href='/signup' passHref>
-                  <Button variant='text' className={styles.button}>sign up</Button>
-              </Link>
+              {session 
+              ? <Button variant='text' className={styles.button} onClick={() => signOut()}>Sign Out</Button>
+              : <Button variant='text' className={styles.button} onClick={() => signIn()}>Sign In</Button> 
+              }
               <Link href='/profile' passHref>
                   <Button variant='text' className={styles.button}>profile</Button>
               </Link>
+              {session
+              ? <Avatar className={styles.avatar} alt="User Photo" variant='circular' sizes="md" src={session.user.image}/>
+              : <></>
+              }
             </Toolbar>
         </div>
     );

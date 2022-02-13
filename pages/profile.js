@@ -1,11 +1,15 @@
+import { useSession } from "next-auth/react";
+import React from "react";
 
-
-const profile = () => {
+const Profile = () => {
+    const { data: session } = useSession();
+    
+    
     return (
         <div>
-            <h1>This is profile</h1>
+            {session ? <h1>{session.user.name}</h1> : <h1></h1>}
         </div>
     );
 };
-
-export default profile;
+ 
+export default Profile;

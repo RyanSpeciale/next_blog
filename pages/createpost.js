@@ -2,18 +2,19 @@ import TextField from '@mui/material/TextField'
 import { Grid, Typography } from '@mui/material';
 import styles from '../styles/create.module.css'
 import { Button } from '@mui/material';
+import { useSession } from 'next-auth/react';
 
 
-const createpost = () => {
-    
-    const handleChange = () => {
-        
-    }
-    
-    
-    
-    
-    return (
+const Createpost = () => {
+   const { data: session, status } = useSession();
+
+   if (!session) {
+       return (
+        <h1>You need to sign in bruh</h1>
+       )
+   }
+   else
+     return (
         <div className={styles.maincontainer}>
             <Grid container direction='column' className={styles.container}>
                 <Grid item xs={4} className={styles.item}>
@@ -31,4 +32,4 @@ const createpost = () => {
     );
 };
 
-export default createpost;
+export default Createpost
