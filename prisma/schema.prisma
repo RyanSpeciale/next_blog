@@ -7,6 +7,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  String
+}
+
 model Account {
   id                 String  @id @default(cuid())
   userId             String
@@ -55,10 +63,3 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  String
-}

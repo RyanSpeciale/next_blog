@@ -21,7 +21,7 @@ const Profile = () => {
 
 	return (
 		<div>
-			<p>{session.user.name}</p>
+			<h2>Signed in as {session.user.name} with and email of {session.user.email}</h2>
 		</div>
 	)
 	

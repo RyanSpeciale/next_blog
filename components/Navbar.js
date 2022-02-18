@@ -13,7 +13,7 @@ const Navbar = () => {
         <div>
             <Toolbar className={styles.toolbar}>
               <FeedIcon fontSize='large'/>
-              <Typography className={styles.title}>MERN Blog</Typography>
+              <Typography className={styles.title}>PERN Blog</Typography>
               <Link href='/' passHref>
                   <Button variant='text' className={styles.button}>home</Button>
               </Link>

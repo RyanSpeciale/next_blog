@@ -6,10 +6,10 @@ import styles from '../styles/home.module.css';
 import technology from '../public/technology.jpeg';
 import technology2 from '../public/technology2.jpeg';
 import { useSession } from 'next-auth/react';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma'
 
 
-const Home = ({ data }) => {
+const Home = ({ posts }) => {
 	const { data: session, status } = useSession();
 
 	return (
@@ -18,12 +18,14 @@ const Home = ({ data }) => {
 			<Grid container className={styles.container}>
 				<Grid item xs={4} className={styles.item}>
 					<Paper elevation={2} className={styles.paper}>
-						{data.quote}
+						{posts[0].title}
 					</Paper>
 				</Grid>
 				<Grid item xs={4}>
 					<Paper elevation={2} className={styles.paper}>
-						{data.quote}
+						{posts[0].title}
+						
+						
 					</Paper>
 				</Grid>
 			</Grid>
@@ -52,12 +54,14 @@ const Home = ({ data }) => {
 };
 export default Home;
 
+
 export async function getServerSideProps() {
-	const prisma = new PrismaClient();
-	const data = prisma.user.findMany()
+	const posts = await prisma.post.findMany({
+		take: 2,
+	})
+	
+
 	return {
-		props: {
-			data,
-		},
-	};
+		props: { posts }
+	}
 }
