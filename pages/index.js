@@ -18,7 +18,7 @@ const Home = ({ posts }) => {
 			<Grid container className={styles.container}>
 				<Grid item xs={4} className={styles.item}>
 					<Paper elevation={2} className={styles.paper}>
-						{posts[0].title}
+						{posts[1].title}
 					</Paper>
 				</Grid>
 				<Grid item xs={4}>

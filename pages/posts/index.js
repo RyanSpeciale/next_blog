@@ -1,30 +1,39 @@
 import prisma from '../../lib/prisma';
+import { Grid } from '@mui/material';
+import { Typography } from '@mui/material';
+import styles from '../../styles/posts.module.css';
+import PostCard from '../../components/PostCard';
+
 
 const postsIndex = ({ posts }) => {
-    return (
-        <div>
-          <h1>All Posts</h1>
-          <br></br>
-          {posts.map(post => (
-              <div key={post.id}>
-                  <h3>{ post.title }</h3>
-                  <p>{ post.content }</p>
-              </div>
-          ))}
-
-           
-
-        </div>
-    );
+	return (
+		<div className={styles.container}>
+			<Typography align='center' variant='h2' gutterBottom className={styles.header}>
+				All Posts
+			</Typography>
+			<Grid container direction='row' justifyContent='center' alignItems='center' spacing={2}>
+                {posts.map(post => (
+                    <Grid item xs={4} key={post.id} className={styles.post}>
+                        <PostCard post={post}/>
+                    </Grid>
+                ))}
+            </Grid>
+		</div>
+	);
 };
 
 export default postsIndex;
 
 export async function getStaticProps() {
-    const data = await prisma.post.findMany()
-
-    return {
-        props: { posts: data }
-    }
+	const data = await prisma.post.findMany({
+        include: {
+            author: {
+              select: { name: true },
+            }
+        }
+    });
+    console.log(data)
+	return {
+		props: { posts: data },
+	};
 }
-

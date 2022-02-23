@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    background-color: cornflowerblue;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-family: fantasy;
+    font-weight: 700;
+}
+
+.author {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 0.2cm;
+}
+
+.button {
+    color: black;
+}
