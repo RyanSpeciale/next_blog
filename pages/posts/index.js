@@ -8,7 +8,7 @@ import PostCard from '../../components/PostCard';
 const postsIndex = ({ posts }) => {
 	return (
 		<div className={styles.container}>
-			<Typography align='center' variant='h2' gutterBottom className={styles.header}>
+			<Typography align='center' variant='h3' gutterBottom className={styles.header}>
 				All Posts
 			</Typography>
 			<Grid container direction='row' justifyContent='center' alignItems='center' spacing={2}>
@@ -37,3 +37,4 @@ export async function getStaticProps() {
 		props: { posts: data },
 	};
 }
+

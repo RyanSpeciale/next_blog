@@ -19,7 +19,7 @@ const PostCard = ({ post }) => {
                   <Typography variant='h5' className={styles.title}>{post.title}</Typography>
                   <Typography variant='body1' className={styles.author}>By: {post.author.name}</Typography>
                   <br></br>
-                  <Button variant='text' className={styles.button}>Read</Button>
+                  <Button variant='text' href={'/posts/' + post.id} className={styles.button}>Read</Button>
                   <Button variant='text' className={styles.button}>Share</Button>
               </CardContent>
             </Card>

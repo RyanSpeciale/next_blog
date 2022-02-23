@@ -8,7 +8,7 @@ generator client {
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
+  id        String  @id @default(cuid())
   title     String
   content   String
   author    User    @relation(fields: [authorId], references: [id])

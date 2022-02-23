@@ -1,6 +1,7 @@
 .card {
     display: flex;
-    background-color: cornflowerblue;
+    flex-wrap: nowrap;
+    background-color: rgb(16, 112, 202);
 }
 .box {
     display: flex;
