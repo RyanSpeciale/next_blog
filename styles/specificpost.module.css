@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: .5cm;
+    
+}
+
+.gridcontainer {
+    margin-top: 1cm;
+    align-content: center;
+    align-items: center;
+
+}
+
+.griditem {
+    align-self: center;
+    align-content: center;
+}
+
+.paper {
+   margin-bottom: 1.5cm;
+   align-items: center;
+   align-content: center;
+   margin-left: 0.3cm;
+   margin-right: 0.3cm;
+}
+
+.title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.author {
+    font-weight: 500;
+    
+}
+
+.image {
+    align-content: center;
+    align-self: center;
+}
+
+.content {
+    margin-left: 0.3cm;
+    font-weight: 400;
+    margin-top: 0.7cm;
+    font-size: medium;
+    
+}
+
+.box {
+    margin-left: 6cm;
+    margin-top: 0.3cm;
+}

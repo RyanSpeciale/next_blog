@@ -1,5 +1,10 @@
 import prisma from '../../lib/prisma';
 import styles from '../../styles/specificpost.module.css';
+import { Grid } from '@mui/material';
+import { Typography } from '@mui/material';
+import { Paper } from '@mui/material';
+import Image from 'next/image';
+import { Box } from '@mui/system';
 
 
 
@@ -7,7 +12,18 @@ const specificPost = ({ post }) => {
     
     return (
         <div className={styles.container}>
-            
+            <Grid container className={styles.gridcontainer}>
+                <Grid item xs={12} className={styles.griditem}>
+                    <Paper elevation={10} className={styles.paper}>
+                        <Box className={styles.box}>
+                            <Image width={650} height={450} className={styles.image} alt='random photo' src={'https://source.unsplash.com/random'} /> 
+                        </Box>
+                        <Typography variant='h3' align='center' className={styles.title}>{post.title}</Typography>
+                        <Typography variant='h6' align='center' className={styles.author}>By: {post.author.name}</Typography>
+                        <Typography gutterBottom variant='body1' align='center' className={styles.content}>{post.content}</Typography>
+                    </Paper>
+                </Grid>
+            </Grid>
         </div>
     );
 };

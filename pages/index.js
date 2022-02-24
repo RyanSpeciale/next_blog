@@ -7,6 +7,7 @@ import technology from '../public/technology.jpeg';
 import technology2 from '../public/technology2.jpeg';
 import { useSession } from 'next-auth/react';
 import prisma from '../lib/prisma'
+import { Button } from '@mui/material';
 
 
 const Home = ({ posts }) => {
@@ -18,14 +19,16 @@ const Home = ({ posts }) => {
 			<Grid container className={styles.container}>
 				<Grid item xs={4} className={styles.item}>
 					<Paper elevation={2} className={styles.paper}>
-						{posts[1].title}
+						<Typography align='center' gutterBottom>{posts[1].title}</Typography>
+						<Typography align='center' gutterBottom>By: {posts[1].author.name}</Typography>
+						<Button sx={{ color: 'black' }} href={'/posts/' + posts[1].id}>Read</Button>
 					</Paper>
 				</Grid>
 				<Grid item xs={4}>
 					<Paper elevation={2} className={styles.paper}>
-						{posts[0].title}
-						
-						
+						<Typography align='center' gutterBottom>{posts[1].title}</Typography>
+						<Typography align='center' gutterBottom>By: {posts[1].author.name}</Typography>
+						<Button sx={{ color: 'black '}} href={'/posts/' + posts[1].id}>Read</Button>
 					</Paper>
 				</Grid>
 			</Grid>
@@ -58,6 +61,12 @@ export default Home;
 export async function getServerSideProps() {
 	const posts = await prisma.post.findMany({
 		take: 2,
+		include: {
+            author: {
+              select: { name: true },
+            }
+        },
+
 	})
 	
 
