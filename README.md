@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **This is an example blog written by myself Ryan Speciale with Next.js**
 
-## Getting Started
+## The technologies used in this blog are as follows.
 
-First, run the development server:
+### 1.Next.js with a Postgresql backend.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### 2. Next-auth for authentication.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Prisma ORM for interacting with the Postgresql database.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+To use this blog as your own you will need to create 2 seprate .env files, one name .env and the other named .env.local. The reason for this is because Next.js uses .env.local by default but prisma and next-auth use .env by default. You could figure out how to combine them into one but it was just as easy for me to create 2 seperate ones. What you will need in both those files are as follows.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+**.env**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. You will need your database connection url
+2. You will need your next-auth url, this will be localhost:3000 while in development if using default Next.js settings.
+3. You will need a next-auth secret, this string will be used to sign your JWT's
+4. You will need all you ID's and SECRET's for the providers that you will use for next-auth, they have all the details on their site on how to register your app with a Provider
 
-## Learn More
+**.env.local**
 
-To learn more about Next.js, take a look at the following resources:
+1. NODE.ENV variable, set to either production or development
+2. Any sites for pulling in images that use an ID and Secret, ie. Unsplash
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Happy Coding! :computer:
