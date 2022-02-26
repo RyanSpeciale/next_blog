@@ -1,7 +1,7 @@
 .card {
     display: flex;
     flex-wrap: nowrap;
-    background-color: rgb(86, 153, 147);
+    background-color: rgb(245, 245, 245);
 }
 .box {
     display: flex;

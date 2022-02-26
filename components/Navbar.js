@@ -27,9 +27,6 @@ const Navbar = () => {
               ? <Button variant='text' className={styles.button} onClick={() => signOut()}>Sign Out</Button>
               : <Button variant='text' className={styles.button} onClick={() => signIn()}>Sign In</Button> 
               }
-              <Link href='/profile' passHref>
-                  <Button variant='text' className={styles.button}>profile</Button>
-              </Link>
               {session
               ? <Avatar className={styles.avatar} alt="User Photo" variant='circular' sizes="md" src={session.user.image}/>
               : <></>

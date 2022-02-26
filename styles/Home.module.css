@@ -1,6 +1,5 @@
 .subtitle {
     margin-top: .5cm;
-    margin-left: 14cm;
     font-weight: 700;
     font-family: fantasy;
     font-size: x-large;
@@ -28,3 +27,6 @@
     margin-right: 4cm;
 }
 
+.button {
+    margin-left: 4cm;
+}

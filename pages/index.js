@@ -15,20 +15,20 @@ const Home = ({ posts }) => {
 
 	return (
 		<div>
-			<Typography className={styles.subtitle}>Latest Posts</Typography>
+			<Typography align='center' className={styles.subtitle}>Latest Posts</Typography>
 			<Grid container className={styles.container}>
 				<Grid item xs={4} className={styles.item}>
-					<Paper elevation={2} className={styles.paper}>
-						<Typography align='center' gutterBottom>{posts[1].title}</Typography>
+					<Paper elevation={12} className={styles.paper}>
+						<Typography align='center' variant='h5' gutterBottom>{posts[1].title}</Typography>
 						<Typography align='center' gutterBottom>By: {posts[1].author.name}</Typography>
-						<Button sx={{ color: 'black' }} href={'/posts/' + posts[1].id}>Read</Button>
+						<Button className={styles.button} sx={{ color: 'black' }} href={'/posts/' + posts[1].id}>Read</Button>
 					</Paper>
 				</Grid>
 				<Grid item xs={4}>
-					<Paper elevation={2} className={styles.paper}>
-						<Typography align='center' gutterBottom>{posts[1].title}</Typography>
+					<Paper elevation={12} className={styles.paper}>
+						<Typography align='center' variant='h5' gutterBottom>{posts[1].title}</Typography>
 						<Typography align='center' gutterBottom>By: {posts[1].author.name}</Typography>
-						<Button sx={{ color: 'black '}} href={'/posts/' + posts[1].id}>Read</Button>
+						<Button className={styles.button} sx={{ color: 'black '}} href={'/posts/' + posts[1].id}>Read</Button>
 					</Paper>
 				</Grid>
 			</Grid>
